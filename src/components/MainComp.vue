@@ -1,6 +1,8 @@
 <script >
+
 export default {
-    name: "MainComp"
+    name: "MainComp",
+
 }
 </script>
 

@@ -1,13 +1,22 @@
 <script >
+import SearchbarComp from './SearchbarComp.vue';
 export default {
-    name: "HeaderComp"
+    name: "HeaderComp",
+    components: {
+        SearchbarComp,
+    }
 }
 </script>
 
 <template>
-    <header class="w-100 d-flex justify-content-center align-items-center">
+    <header class="w-100 d-flex align-items-center">
 
-        <h1>Boolfix</h1>
+        <div class="container d-flex align-items-center justify-content-between">
+            <img src="../../public/img/logo.png" alt="logo">
+            <SearchbarComp />
+        </div>
+
+
 
     </header>
 </template>
