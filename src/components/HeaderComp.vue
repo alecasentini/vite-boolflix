@@ -25,7 +25,5 @@ export default {
 header {
     background-color: black;
     height: 100px;
-    position: sticky;
-    top: 0;
 }
 </style>
