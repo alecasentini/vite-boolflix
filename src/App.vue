@@ -8,11 +8,7 @@ export default {
     HeaderComp,
     MainComp
   },
-  data() {
-    return {
-      store
-    }
-  },
+
 }
 
 </script>

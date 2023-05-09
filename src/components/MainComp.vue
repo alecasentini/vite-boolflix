@@ -1,13 +1,12 @@
 <script >
 import SearchResultComp from './SearchResultComp.vue';
-import SearchResultComp from './SearchResultComp.vue';
 
 export default {
     name: "MainComp",
-    contents: {
+    components: {
         SearchResultComp,
     },
-    components: { SearchResultComp }
+
 }
 </script>
 
@@ -20,6 +19,7 @@ export default {
 <style lang="scss">
 main {
     background-color: rgb(29, 28, 28);
-    height: 100vh;
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
 }
 </style>

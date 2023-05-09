@@ -25,11 +25,7 @@ export default {
 header {
     background-color: black;
     height: 100px;
-    position: fixed;
+    position: sticky;
     top: 0;
-
-    h1 {
-        color: red;
-    }
 }
 </style>
