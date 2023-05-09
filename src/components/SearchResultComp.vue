@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <div class="container h-100 d-flex flex-wrap justify-content-between">
+    <div class="container h-100 d-flex flex-wrap p-0">
         <CardComp />
     </div>
 </template>

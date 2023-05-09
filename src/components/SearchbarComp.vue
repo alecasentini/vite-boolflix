@@ -9,16 +9,15 @@ export default {
             searchQuery: '',
         };
     },
+
     methods: {
         search() {
 
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1fb3006bd468938300e6513240f07c00&query=${this.searchQuery}`)
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1fb3006bd468938300e6513240f07c00&language=it&query=${this.searchQuery}`)
                 .then(res => {
                     store.movies = res.data.results
-                    console.log(res.data.results)
-
                 })
-        }
+        },
     }
 }
 
@@ -27,7 +26,7 @@ export default {
 <template>
     <div class="d-flex flex-wrap">
 
-        <input type="text" v-model="searchQuery" class="me-3">
+        <input type="text" v-model="searchQuery" class="me-3 ps-2">
         <button type="button" class="btn btn-danger" @click="search">Search</button>
 
     </div>
