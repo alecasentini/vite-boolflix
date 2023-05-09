@@ -15,7 +15,7 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ movie.original_title }}</h6>
-            <img :src="`https://flagcdn.com/h20/${movie.original_language}.png`">
+            <img :src="`https://flagcdn.com/h20/${movie.original_language === 'en' ? 'gb' : movie.original_language}.png`">
             <p class="card-text">{{ movie.vote_average }}</p>
         </div>
     </div>
