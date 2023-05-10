@@ -6,6 +6,13 @@ export default {
         return {
             store
         }
+    },
+    methods: {
+        mapVote(vote) {
+            const roundedVote = Math.round(vote)
+            const mappedVote = Math.ceil(roundedVote / 2)
+            return mappedVote
+        }
     }
 }
 </script>
@@ -19,7 +26,12 @@ export default {
             <h6 class="card-subtitle mb-2">{{ movie.original_title }}</h6>
             <img
                 :src="`https://flagcdn.com/h20/${movie.original_language === 'ja' ? 'jp' : (movie.original_language === 'en' ? 'gb' : movie.original_language)}.png`">
-            <p class="card-text">Voto {{ movie.vote_average }}</p>
+            <p class="card-text">
+                Voto:
+                <font-awesome-icon v-for="star in Math.ceil(movie.vote_average / 2)" :key="star" :icon="['fas', 'star']" />
+                <font-awesome-icon v-for="star in 5 - Math.ceil(movie.vote_average / 2)" :key="star"
+                    :icon="['far', 'star']" />
+            </p>
         </div>
     </div>
 </template>
@@ -60,6 +72,10 @@ export default {
         img {
             height: 20px;
             width: 30px;
+        }
+
+        .fa-star {
+            color: yellow;
         }
 
 

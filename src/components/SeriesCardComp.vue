@@ -6,6 +6,13 @@ export default {
         return {
             store
         }
+    },
+    methods: {
+        mapVote(vote) {
+            const roundedVote = Math.round(vote)
+            const mappedVote = Math.ceil(roundedVote / 2)
+            return mappedVote
+        }
     }
 }
 </script>
@@ -19,7 +26,7 @@ export default {
             <h6 class="card-subtitle mb-2">{{ serie.original_name }}</h6>
             <img
                 :src="`https://flagcdn.com/h20/${serie.original_language === 'ja' ? 'jp' : (serie.original_language === 'en' ? 'gb' : serie.original_language)}.png`">
-            <p class="card-text">Voto {{ serie.vote_average }}</p>
+            <p class="card-text">Voto {{ mapVote(serie.vote_average) }}</p>
         </div>
     </div>
 </template>
