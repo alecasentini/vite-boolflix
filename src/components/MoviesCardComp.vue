@@ -44,12 +44,13 @@ export default {
 
 <style lang="scss">
 .card {
-    width: calc(100% / 5 - 10px);
-    height: 300px !important;
+    min-width: calc(100% / 5 - 10px) !important;
+    height: 350px !important;
     margin: 10px 5px;
     border: 0 !important;
     position: relative;
     overflow: hidden;
+    cursor: default;
 
     img {
         height: 100%;

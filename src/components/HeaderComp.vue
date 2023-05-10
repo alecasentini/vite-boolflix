@@ -24,6 +24,10 @@ export default {
 <style lang="scss">
 header {
     background-color: black;
-    height: 100px;
+    height: 70px;
+
+    img {
+        height: 70px;
+    }
 }
 </style>
