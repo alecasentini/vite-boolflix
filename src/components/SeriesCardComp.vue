@@ -26,7 +26,12 @@ export default {
             <h6 class="card-subtitle mb-2">{{ serie.original_name }}</h6>
             <img
                 :src="`https://flagcdn.com/h20/${serie.original_language === 'ja' ? 'jp' : (serie.original_language === 'en' ? 'gb' : serie.original_language)}.png`">
-            <p class="card-text">Voto {{ mapVote(serie.vote_average) }}</p>
+            <p class="card-text">
+                Voto:
+                <font-awesome-icon v-for="star in Math.ceil(serie.vote_average / 2)" :key="star" :icon="['fas', 'star']" />
+                <font-awesome-icon v-for="star in 5 - Math.ceil(serie.vote_average / 2)" :key="star"
+                    :icon="['far', 'star']" />
+            </p>
         </div>
     </div>
 </template>
