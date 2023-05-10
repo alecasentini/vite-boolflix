@@ -24,13 +24,16 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ serie.name }}</h5>
             <h6 class="card-subtitle mb-2">{{ serie.original_name }}</h6>
-            <img
-                :src="`https://flagcdn.com/h20/${serie.original_language === 'ja' ? 'jp' : (serie.original_language === 'en' ? 'gb' : serie.original_language)}.png`">
+            <img :src="`https://flagcdn.com/h20/${serie.original_language === 'ja' ? 'jp' : (serie.original_language === 'en' ? 'gb' : (serie.original_language === 'ko' ? 'kr' : serie.original_language))}.png`"
+                onerror="this.onerror=null;this.src='../../public/img/pirate_flag.jpg';">
             <p class="card-text">
                 Voto:
                 <font-awesome-icon v-for="star in Math.ceil(serie.vote_average / 2)" :key="star" :icon="['fas', 'star']" />
                 <font-awesome-icon v-for="star in 5 - Math.ceil(serie.vote_average / 2)" :key="star"
                     :icon="['far', 'star']" />
+            </p>
+            <p class="card-text">
+                Trama: {{ serie.overview }}
             </p>
         </div>
     </div>
@@ -51,7 +54,7 @@ export default {
 
     .card-body {
         position: absolute;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
         height: 100%;
         width: 100%;
         display: none;

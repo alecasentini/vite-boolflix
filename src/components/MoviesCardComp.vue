@@ -24,13 +24,18 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <h6 class="card-subtitle mb-2">{{ movie.original_title }}</h6>
-            <img
-                :src="`https://flagcdn.com/h20/${movie.original_language === 'ja' ? 'jp' : (movie.original_language === 'en' ? 'gb' : movie.original_language)}.png`">
+            <img :src="`https://flagcdn.com/h20/${movie.original_language === 'ja' ? 'jp' : (movie.original_language === 'en' ? 'gb' : (movie.original_language === 'ko' ? 'kr' : movie.original_language))}.png`"
+                onerror="this.onerror=null;this.src='../../public/img/pirate_flag.jpg';">
+
             <p class="card-text">
                 Voto:
                 <font-awesome-icon v-for="star in Math.ceil(movie.vote_average / 2)" :key="star" :icon="['fas', 'star']" />
                 <font-awesome-icon v-for="star in 5 - Math.ceil(movie.vote_average / 2)" :key="star"
                     :icon="['far', 'star']" />
+            </p>
+            <p class="card-text trama">
+                <span class="fw-bolder">Trama:</span>
+                {{ movie.overview }}
             </p>
         </div>
     </div>
@@ -43,6 +48,7 @@ export default {
     margin: 10px 5px;
     border: 0 !important;
     position: relative;
+    overflow: hidden;
 
     img {
         height: 100%;
@@ -51,7 +57,7 @@ export default {
 
     .card-body {
         position: absolute;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
         height: 100%;
         width: 100%;
         display: none;
@@ -76,6 +82,10 @@ export default {
 
         .fa-star {
             color: yellow;
+        }
+
+        .trama {
+            font-size: 10px;
         }
 
 
