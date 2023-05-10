@@ -1,9 +1,11 @@
 <script >
 import SearchbarComp from './SearchbarComp.vue';
+import SelectGenereComp from './SelectGenereComp.vue';
 export default {
     name: "HeaderComp",
     components: {
         SearchbarComp,
+        SelectGenereComp
     }
 }
 </script>
@@ -14,6 +16,7 @@ export default {
         <div class="container d-flex align-items-center justify-content-between">
             <img src="../../public/img/logo.png" alt="logo">
             <SearchbarComp />
+            <SelectGenereComp />
         </div>
 
 
