@@ -1,7 +1,7 @@
 <script >
 import { store } from '../store.js'
 export default {
-    name: "CardComp",
+    name: "MoviesCardComp",
     data() {
         return {
             store
@@ -12,7 +12,8 @@ export default {
 
 <template>
     <div class="card" v-for="movie in store.movies" :key="movie.id">
-        <img :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path" />
+        <img :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path"
+            onerror="this.onerror=null;this.src='../../public/img/image_null.png';" />
         <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <h6 class="card-subtitle mb-2">{{ movie.original_title }}</h6>

@@ -1,10 +1,12 @@
 <script >
-import CardComp from './CardComp.vue';
+import MoviesCardComp from './MoviesCardComp.vue';
+import SeriesCardComp from './SeriesCardComp.vue';
 
 export default {
     name: "SearchResultComp",
     components: {
-        CardComp
+        MoviesCardComp,
+        SeriesCardComp
     },
 
 }
@@ -12,7 +14,8 @@ export default {
 
 <template>
     <div class="container h-100 d-flex flex-wrap p-0">
-        <CardComp />
+        <MoviesCardComp />
+        <SeriesCardComp />
     </div>
 </template>
 
