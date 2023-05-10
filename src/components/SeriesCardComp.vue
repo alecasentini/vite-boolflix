@@ -23,7 +23,7 @@ export default {
             onerror="this.onerror=null;this.src='../../public/img/image_null.png';" />
         <div class="card-body">
             <h5 class="card-title">{{ serie.name }}</h5>
-            <h6 class="card-subtitle mb-2">{{ serie.original_name }}</h6>
+            <h6 class="card-subtitle mb-2" v-if="serie.original_name !== serie.name">{{ serie.original_name }}</h6>
             <img :src="`https://flagcdn.com/h20/${serie.original_language === 'ja' ? 'jp' : (serie.original_language === 'en' ? 'gb' : (serie.original_language === 'ko' ? 'kr' : serie.original_language))}.png`"
                 onerror="this.onerror=null;this.src='../../public/img/pirate_flag.jpg';">
             <p class="card-text">
@@ -32,7 +32,7 @@ export default {
                 <font-awesome-icon v-for="star in 5 - Math.ceil(serie.vote_average / 2)" :key="star"
                     :icon="['far', 'star']" />
             </p>
-            <p class="card-text">
+            <p class="card-text trama">
                 Trama: {{ serie.overview }}
             </p>
         </div>
@@ -75,6 +75,10 @@ export default {
         img {
             height: 20px;
             width: 30px;
+        }
+
+        .trama {
+            font-size: 10px;
         }
 
 

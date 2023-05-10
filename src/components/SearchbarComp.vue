@@ -18,7 +18,7 @@ export default {
                     store.movies = res.data.results
                     console.log(res.data.results)
                 }),
-                axios.get(`https://api.themoviedb.org/3/search/tv?api_key=1fb3006bd468938300e6513240f07c00&language=it_IT&query=${this.searchQuery}`)
+                axios.get(`https://api.themoviedb.org/3/search/tv?api_key=1fb3006bd468938300e6513240f07c00&language=it&query=${this.searchQuery}`)
                     .then(res => {
                         store.series = res.data.results
                         console.log(res.data.results)
