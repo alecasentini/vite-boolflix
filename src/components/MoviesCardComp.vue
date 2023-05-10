@@ -36,7 +36,7 @@ export default {
             </p>
             <p class="card-text trama">
                 <span class="fw-bolder">Trama:</span>
-                {{ movie.overview }}
+                {{ movie.overview.length > 300 ? movie.overview.slice(0, 300) + '...' : movie.overview }}
             </p>
         </div>
     </div>
@@ -51,6 +51,7 @@ export default {
     position: relative;
     overflow: hidden;
     cursor: default;
+    border-radius: 0 !important;
 
     img {
         height: 100%;

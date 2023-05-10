@@ -33,65 +33,10 @@ export default {
                     :icon="['far', 'star']" />
             </p>
             <p class="card-text trama">
-                Trama: {{ serie.overview }}
+                Trama: {{ serie.overview.length > 300 ? serie.overview.slice(0, 300) + '...' : serie.overview }}
             </p>
         </div>
     </div>
 </template>
 
-<style lang="scss">
-.card {
-    min-width: calc(100% / 5 - 10px) !important;
-    height: 350px !important;
-    margin: 10px 5px;
-    border: 0 !important;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-
-    img {
-        height: 100%;
-        object-fit: fill;
-    }
-
-    .card-body {
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.8);
-        height: 100%;
-        width: 100%;
-        display: none;
-
-        h5 {
-            color: white;
-        }
-
-        h6 {
-            color: lightgrey;
-        }
-
-        p {
-            color: white;
-        }
-
-
-        img {
-            height: 20px;
-            width: 30px;
-        }
-
-        .fa-star {
-            color: yellow;
-        }
-
-        .trama {
-            font-size: 10px;
-        }
-
-
-    }
-
-    &:hover .card-body {
-        display: block;
-    }
-}
-</style>
+<style lang="scss"></style>
