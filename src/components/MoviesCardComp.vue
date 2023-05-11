@@ -1,10 +1,12 @@
 <script >
 import { store } from '../store.js'
+import axios from 'axios'
 export default {
     name: "MoviesCardComp",
     data() {
         return {
-            store
+            store,
+            genres: []
         }
     },
     methods: {
@@ -12,7 +14,18 @@ export default {
             const roundedVote = Math.round(vote)
             const mappedVote = Math.ceil(roundedVote / 2)
             return mappedVote
+        },
+        getGenreNameById(id) {
+            const genre = this.genres.find(genre => genre.id === id);
+            return genre ? genre.name : '';
         }
+    },
+    created() {
+        axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=1fb3006bd468938300e6513240f07c00&language=it')
+            .then(res => {
+                this.genres = res.data.genres;
+                console.log(res.data.genres)
+            })
     }
 }
 </script>
@@ -38,7 +51,9 @@ export default {
                 <span class="fw-bolder">Trama:</span>
                 {{ movie.overview.length > 300 ? movie.overview.slice(0, 300) + '...' : movie.overview }}
             </p>
-            <p class="card-text d-inline mx-2" v-for="genre in movie.genre_ids" :key="genre">{{ genre }}</p>
+            <p class="genere card-text d-inline me-1" v-for="genreId in movie.genre_ids" :key="genreId">
+                {{ getGenreNameById(genreId) }}
+            </p>
         </div>
     </div>
 </template>
@@ -90,6 +105,10 @@ export default {
 
         .trama {
             font-size: 10px;
+        }
+
+        .genere {
+            font-size: 12px;
         }
 
 

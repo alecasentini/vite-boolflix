@@ -1,5 +1,6 @@
 <script >
 import { store } from '../store.js'
+import axios from 'axios'
 export default {
     name: "SeriesCardComp",
     data() {
@@ -12,7 +13,18 @@ export default {
             const roundedVote = Math.round(vote)
             const mappedVote = Math.ceil(roundedVote / 2)
             return mappedVote
+        },
+        getGenreNameById(id) {
+            const genre = this.genres.find(genre => genre.id === id);
+            return genre ? genre.name : '';
         }
+    },
+    created() {
+        axios.get('https://api.themoviedb.org/3/genre/tv/list?api_key=1fb3006bd468938300e6513240f07c00&language=it')
+            .then(res => {
+                this.genres = res.data.genres;
+                console.log(res.data.genres)
+            })
     }
 }
 </script>
@@ -34,6 +46,9 @@ export default {
             </p>
             <p class="card-text trama">
                 Trama: {{ serie.overview.length > 300 ? serie.overview.slice(0, 300) + '...' : serie.overview }}
+            </p>
+            <p class="genere card-text d-inline me-1" v-for="genreId in serie.genre_ids" :key="genreId">
+                {{ getGenreNameById(genreId) }}
             </p>
         </div>
     </div>
