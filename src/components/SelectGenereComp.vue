@@ -31,6 +31,7 @@ export default {
                             this.genres.push(genre);
                         }
                     }
+                    this.genres.sort((a, b) => a.name.localeCompare(b.name));
                 })
     },
 
