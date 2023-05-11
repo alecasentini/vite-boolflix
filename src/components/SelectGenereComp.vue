@@ -9,8 +9,8 @@ export default {
             store,
             genres: [],
             selectedGenre: '',
-            moviesGenres: [28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
-            seriesGenres: [10759, 16, 35, 80, 99, 18, 10751, 10762, 9648, 10763, 10764, 10765, 10766, 10767, 10768, 37]
+            moviesGenres: [],
+            seriesGenres: []
         }
     },
     created() {
@@ -21,6 +21,7 @@ export default {
                     if (!this.genres.find(g => g.id === genre.id)) {
                         this.genres.push(genre);
                     }
+                    this.moviesGenres.push(genre.id)
                 }
             }),
             axios.get('https://api.themoviedb.org/3/genre/tv/list?api_key=1fb3006bd468938300e6513240f07c00&language=it')
@@ -30,6 +31,7 @@ export default {
                         if (!this.genres.find(g => g.id === genre.id)) {
                             this.genres.push(genre);
                         }
+                        this.seriesGenres.push(genre.id)
                     }
                     this.genres.sort((a, b) => a.name.localeCompare(b.name));
                 })
