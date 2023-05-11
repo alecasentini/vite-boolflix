@@ -6,6 +6,11 @@ export default {
     components: {
         SearchbarComp,
         SelectGenereComp
+    },
+    methods: {
+        refreshPage() {
+            location.reload();
+        }
     }
 }
 </script>
@@ -14,7 +19,7 @@ export default {
     <header class="w-100 d-flex align-items-center">
 
         <div class="container d-flex align-items-center justify-content-between">
-            <a href="#"><img src="../../public/img/logo.png" alt="logo" /></a>
+            <a href="#" @click="refreshPage"><img src="../../public/img/logo.png" alt="logo" /></a>
             <SearchbarComp />
             <SelectGenereComp />
         </div>
