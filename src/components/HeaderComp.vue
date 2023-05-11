@@ -14,7 +14,7 @@ export default {
     <header class="w-100 d-flex align-items-center">
 
         <div class="container d-flex align-items-center justify-content-between">
-            <img src="../../public/img/logo.png" alt="logo">
+            <a href="#"><img src="../../public/img/logo.png" alt="logo" /></a>
             <SearchbarComp />
             <SelectGenereComp />
         </div>

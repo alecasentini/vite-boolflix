@@ -38,6 +38,7 @@ export default {
                 <span class="fw-bolder">Trama:</span>
                 {{ movie.overview.length > 300 ? movie.overview.slice(0, 300) + '...' : movie.overview }}
             </p>
+            <p class="card-text d-inline mx-2" v-for="genre in movie.genre_ids" :key="genre">{{ genre }}</p>
         </div>
     </div>
 </template>

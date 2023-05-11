@@ -19,13 +19,18 @@ export default {
                 }
             })
     },
+    methods: {
+        selectChange() {
+
+        }
+    }
 }
 </script>
 
 <template>
     <select class="form-select" aria-label="Default select example">
         <option selected>Seleziona Genere</option>
-        <option v-for="genre in genres" :value="genre.name">{{ genre }}</option>
+        <option v-for="genre in genres" :value="genre.id">{{ genre }}</option>
     </select>
 </template>
 
