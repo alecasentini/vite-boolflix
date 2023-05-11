@@ -8,7 +8,9 @@ export default {
         return {
             store,
             genres: [],
-            selectedGenre: ''
+            selectedGenre: '',
+            moviesGenres: [28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
+            seriesGenres: [10759, 16, 35, 80, 99, 18, 10751, 10762, 9648, 10763, 10764, 10765, 10766, 10767, 10768, 37]
         }
     },
     created() {
@@ -50,14 +52,19 @@ export default {
 </script>
 
 <template>
-    <select class="form-select" aria-label="Default select example" v-model="this.selectedGenre" @change="selectChange">
+    <select class="form-select" aria-label="Default select example" v-model="selectedGenre" @change="selectChange">
         <option selected value="">Seleziona Genere</option>
-        <option v-for="genre in genres" :value="genre.id">{{ genre.name }}</option>
+        <option v-for="genre in genres" :value="genre.id">
+            {{ genre.name }}
+            {{ moviesGenres.includes(genre.id) && seriesGenres.includes(genre.id) ? ' (Film - Serie TV)' : '' }}
+            {{ moviesGenres.includes(genre.id) && !seriesGenres.includes(genre.id) ? ' (Film)' : '' }}
+            {{ !moviesGenres.includes(genre.id) && seriesGenres.includes(genre.id) ? ' (Serie TV)' : '' }}
+        </option>
     </select>
 </template>
 
 <style lang="scss">
 select {
-    width: 180px !important;
+    width: 270px !important;
 }
 </style>
