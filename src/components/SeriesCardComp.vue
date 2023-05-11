@@ -5,7 +5,8 @@ export default {
     name: "SeriesCardComp",
     data() {
         return {
-            store
+            store,
+            genres: []
         }
     },
     methods: {
