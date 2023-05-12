@@ -1,12 +1,14 @@
 <script >
 import { store } from '../store.js'
 import axios from 'axios'
+
 export default {
     name: "MoviesCardComp",
+
     data() {
         return {
             store,
-            genres: []
+            genres: [],
         }
     },
     methods: {
@@ -25,8 +27,10 @@ export default {
             .then(res => {
                 this.genres = res.data.genres;
                 console.log(res.data.genres)
-            })
-    }
+            });
+
+    },
+
 }
 </script>
 
@@ -47,13 +51,14 @@ export default {
                 <font-awesome-icon v-for="star in 5 - Math.ceil(movie.vote_average / 2)" :key="star"
                     :icon="['far', 'star']" />
             </p>
-            <p class="card-text trama">
+            <p class="card-text trama my-1">
                 <span class="fw-bolder">Trama:</span>
                 {{ movie.overview.length > 300 ? movie.overview.slice(0, 300) + '...' : movie.overview }}
             </p>
-            <p class="genere card-text d-inline me-1" v-for="genreId in movie.genre_ids" :key="genreId">
+            <p class="genere card-text d-inline me-1 my-0" v-for="genreId in movie.genre_ids" :key="genreId">
                 {{ getGenreNameById(genreId) }}
             </p>
+
         </div>
     </div>
 </template>

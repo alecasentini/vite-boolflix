@@ -1,12 +1,14 @@
 <script >
 import { store } from '../store.js'
 import axios from 'axios'
+
 export default {
     name: "SeriesCardComp",
+
     data() {
         return {
             store,
-            genres: []
+            genres: [],
         }
     },
     methods: {
@@ -51,6 +53,7 @@ export default {
             <p class="genere card-text d-inline me-1" v-for="genreId in serie.genre_ids" :key="genreId">
                 {{ getGenreNameById(genreId) }}
             </p>
+
         </div>
     </div>
 </template>
